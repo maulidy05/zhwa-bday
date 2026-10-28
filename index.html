@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Zahwa Oktaviolen! ✨</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #ff4d79;
+            --secondary: #ff8da1;
+            --bg-gradient: linear-gradient(135deg, #1a0f1f 0%, #2c1633 50%, #120817 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-glow: rgba(255, 77, 121, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Floating Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 141, 161, 0.3);
+            border-radius: 50%;
+            animation: floatUp 10s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glow);
+            border-radius: 25px;
+            padding: 30px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 77, 121, 0.15);
+            text-align: center;
+        }
+
+        /* Music Controls */
+        .music-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .music-toggle:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Header / Title */
+        .title-sub {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 3.2rem;
+            color: #ff9ebb;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 158, 187, 0.4);
+        }
+        h2 {
+            font-family: 'Sacramento', cursive;
+            font-size: 2.2rem;
+            color: #ff9ebb;
+            margin-bottom: 20px;
+            text-shadow: 0 0 25px rgba(255, 158, 187, 0.4);
+        }
+
+        /* Slideshow Foto Kenangan */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 2px solid rgba(255, 141, 161, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            background: #0f0814; /* Warna latar belakang bingkai */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        /* Message Box / Ucapan & Maaf */
+        .message-box {
+            background: rgba(0, 0, 0, 0.25);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 15px 15px 0;
+            text-align: left;
+            margin-bottom: 25px;
+            font-size: 0.93rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        .message-box p {
+            margin-bottom: 12px;
+        }
+
+        .message-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Invitation Section (Nanti Sore) */
+        .invitation-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 141, 161, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .invitation-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ffd1dc;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            min-height: 50px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #ff4d79, #ff758c);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 77, 121, 0.4);
+            z-index: 3;
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 77, 121, 0.6);
+        }
+
+        .btn-no {
+            background: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        /* Footer Note */
+        .footer-note {
+            margin-top: 20px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        /* --- KUE ULANG TAHUN STYLING --- */
+        .cake-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0 25px 0;
+            cursor: pointer;
+            position: relative;
+        }
+        .cake {
+            position: relative;
+            width: 120px;
+            height: 125px;
+        }
+        .plate {
+            position: absolute;
+            bottom: 0;
+            left: -10px;
+            width: 140px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+        .layer {
+            position: absolute;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            border-radius: 10px 10px 0 0;
+        }
+        .layer-bottom {
+            bottom: 12px;
+            left: 10px;
+            width: 100px;
+            height: 35px;
+        }
+        .layer-top {
+            bottom: 47px;
+            left: 20px;
+            width: 80px;
+            height: 30px;
+            background: linear-gradient(135deg, #ffa8b6, #ffc2cd);
+        }
+        .icing {
+            position: absolute;
+            top: 40px;
+            left: 18px;
+            width: 84px;
+            height: 12px;
+            background: #fff;
+            border-radius: 10px;
+        }
+       /* --- LILIN ANGKA 19 --- */
+       .candle-number {
+            position: absolute;
+            bottom: 75px;
+            left: 45px;
+            font-size: 32px;
+            font-weight: 700;
+            color: #ff4d79;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            letter-spacing: -2px;
+            display: flex;
+            align-items: flex-end;
+            z-index: 4;
+        }
+        
+        .flame-container {
+            position: absolute;
+            bottom: 110px;
+            left: 45px;
+            display: flex;
+            gap: 5px; /* Jarak api untuk angka 1 dan 9 */
+        }
+
+        .flame {
+            width: 10px;
+            height: 16px;
+            background: #ffcc00;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 10px #ffaa00, 0 0 18px #ff4d00;
+            animation: flicker 0.6s infinite alternate;
+        }
+
+        .flame.extinguished {
+            display: none;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
+            100% { transform: scale(1.15) rotate(2deg); opacity: 1; }
+        }
+
+        .cake-text {
+            font-size: 0.8rem;
+            color: #ff9ebb;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Background Bubbles/Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Audio Background (Ganti link musik jika mau) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <!-- Tombol Musik -->
+        <div class="music-toggle" id="musicToggle" onclick="toggleMusic()" title="Putar/Matikan Musik">
+            <i class="fa-solid fa-music"></i>
+        </div>
+
+        <!-- Header -->
+        <div class="title-sub">Happy Birthday</div>
+        <h1>Zahwa Oktaviolen</h1>
+        <h2>Yang Ke-19</h2>
+
+        <!-- Slideshow Foto -->
+        <div class="slideshow-container" id="slideshow">
+            <!-- Ganti foto1.jpg, foto2.jpg, foto3.jpg dengan nama file fotomu -->
+            <div class="slide active"><img src="Foto1.jpg" alt="Kenangan 1"></div>
+            <div class="slide"><img src="Foto2.jpg" alt="Kenangan 2"></div>
+            <div class="slide"><img src="Foto3.jpg" alt="Kenangan 3"></div>
+            <div class="slide"><img src="Foto4.jpg" alt="Kenangan 4"></div>
+            <div class="slide"><img src="Foto5.jpg" alt="Kenangan 5"></div>
+        </div>
+
+        <!-- Kue Ulang Tahun dengan Lilin Angka 19 -->
+        <div class="cake-container" onclick="blowCandle()" title="Klik untuk tiup lilin!">
+            <div class="cake">
+                <div class="plate"></div>
+                <div class="layer layer-bottom"></div>
+                <div class="layer layer-top"></div>
+                <div class="icing"></div>
+                <!-- Lilin Angka 19 -->
+                <div class="candle-number">19</div>
+                <div class="flame-container">
+                    <div class="flame" id="candleFlame1"></div>
+                    <div class="flame" id="candleFlame2"></div>
+                </div>
+            </div>
+            <div class="cake-text" id="cakeHint">✨ (Klik kuenya untuk tiup lilin angka 19!) ✨</div>
+        </div>
+
+        <!-- Ucapan & Permintaan Maaf (HTS Context) -->
+        <div class="message-box">
+            <p>Hai Zahwa, selamat ulang tahun ya! Semoga panjang umur, sehat selalu, dan semua hal baik menyertai harimu kedepan.</p>
+            <p>Di momen spesial ini, aku juga mau minta maaf yang sebesar-besarnya ya, Wa. Aku sadar belakangan ini sikap atau caraku mungkin terlalu berlebihan ke kamu, padahal hubungan kita statusnya cuma sebatas HTS-an.</p>
+            <p>Maaf kalau kadang bikin kamu risih atau ngerasa terbebani. Aku cuma tulus sayang dan nyaman sama kamu, tapi aku janji bakal lebih tahu batas ke depannya. Sekali lagi, <em>happy birthday ya!</em></p>
+        </div>
+
+        <!-- Ajakan Jalan Nanti Sore -->
+        <div class="invitation-section">
+            <h3>Nanti sore jadi kan jalan-jalan sebentar? ✨</h3>
+            <div class="btn-group" id="btnGroup">
+                <button class="btn btn-yes" onclick="sendWhatsApp(true)"><i class="fa-solid fa-check"></i> Mau</button>
+                <button class="btn btn-no" id="btnNo" onmouseover="moveButton()" ontouchstart="moveButton()" onclick="sendWhatsApp(false)">Nggak</button>
+            </div>
+        </div>
+
+        <div class="footer-note">Dibuat khusus untuk Zahwa Oktaviolen • 2026</div>
+    </div>
+
+    <script>
+        // 1. Efek Background Partikel Melayang
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 25; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 8 + 4 + 'px';
+            particle.style.width = size;
+            particle.style.height = size;
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 8 + 5) + 's';
+            particle.style.animationDelay = (Math.random() * 5) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // 2. Slideshow Foto Otomatis
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 3500); // Berganti setiap 3.5 detik
+
+        // 3. Tombol "Nggak" yang Usil Menghindar
+        const btnNo = document.getElementById('btnNo');
+        function moveButton() {
+            const x = Math.random() * 140 - 70;
+            const y = Math.random() * 60 - 30;
+            btnNo.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        // 4. Tombol Musik Player
+        const music = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        let isPlaying = false;
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicToggle.innerHTML = '<i class="fa-solid fa-music"></i>';
+                musicToggle.style.background = "rgba(255, 255, 255, 0.1)";
+            } else {
+                music.play();
+                musicToggle.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                musicToggle.style.background = "var(--primary)";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 5. Kirim Jawaban Langsung ke WhatsApp Kamu
+        function sendWhatsApp(isYes) {
+            // ---> GANTI NOMOR WHATSAPP DI BAWAH INI DENGAN NOMORMU SENDIRI (Format: KodeNegara + Nomor, contoh: 6281234567890) <---
+            const myPhoneNumber = "6285765675850"; 
+            
+            let message = "";
+            if (isYes) {
+                message = "Hai! Aku udah baca undangannya. Untuk ajakan nanti sore, *AKU MAU* jalan-jalan! 😊✨";
+            } else {
+                message = "Hai! Aku udah baca undangannya. Maaf banget ya untuk nanti sore kayaknya aku nggak bisa. 🙏";
+            }
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${myPhoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Fungsi Tiup Lilin Angka 19
+        function blowCandle() {
+            const flame1 = document.getElementById('candleFlame1');
+            const flame2 = document.getElementById('candleFlame2');
+            const hint = document.getElementById('cakeHint');
+            
+            if (!flame1.classList.contains('extinguished')) {
+                flame1.classList.add('extinguished');
+                flame2.classList.add('extinguished');
+                hint.innerHTML = "🎉 Yeay! Selamat Ulang Tahun ke-19 Zahwa! 🎂";
+                hint.style.color = "#4ade80";
+            } else {
+                flame1.classList.remove('extinguished');
+                flame2.classList.remove('extinguished');
+                hint.innerHTML = "✨ (Klik kuenya untuk tiup lilin angka 19!) ✨";
+                hint.style.color = "#ff9ebb";
+            }
+        }
+        
+    </script>
+</body>
+</html>
